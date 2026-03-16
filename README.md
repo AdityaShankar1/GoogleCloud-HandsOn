@@ -1,23 +1,22 @@
-# Google Cloud Platform: Core Foundations Lab
+# Google Cloud Platform: Core Foundations, Automation & Enterprise Systems
 
-A comprehensive, hands-on repository documenting the deployment, security, and observability of a modern cloud ecosystem on GCP. This project emphasizes a **CLI-first** approach and **SRE (Site Reliability Engineering)** mindset.
+A "Super-Repository" documenting the transition from manual cloud deployment to automated, enterprise-ready infrastructure.
 
-## 🚀 Project Overview
-This repository serves as a technical log of core GCP services integrated to form a functional, event-driven infrastructure. Each module includes deployment logs, troubleshooting steps, and architectural insights.
+## 🚀 Repository Roadmap
 
-## 📁 Repository Structure
+### **Core Foundations (GCP Native)**
+- **[01-Cloud Storage](./01-cloud-storage):** Object storage and IAM bucket policies.
+- **[02-Event-Driven Pub/Sub](./02-event-driven-pubsub):** Asynchronous messaging decoupling.
+- **[03-Serverless Logic](./03-serverless-logic):** 2nd Gen Cloud Functions and Build-pipeline troubleshooting.
+- **[04-Observability](./04-observability):** Uptime monitoring and REST API (cURL) interaction.
 
-- **[01-cloud-storage](./01-cloud-storage):** Object storage management, GCS bucket policies, and public access configurations.
-- **[02-event-driven-pubsub](./02-event-driven-pubsub):** Asynchronous messaging and decoupling using Pub/Sub topics and subscriptions.
-- **[03-serverless-logic](./03-serverless-logic):** Deploying 2nd Gen Cloud Functions (Python) triggered by infrastructure events.
-- **[04-observability](./04-observability):** Proactive health monitoring via Uptime Checks and Cloud Monitoring API integration.
+### **Cloud Automation (Infrastructure as Code)**
+- **[05-Automation & Monitoring (Ansible)](./05-automation-ansible):** - Automating GCP compute instances and software provisioning.
+  - Deploying a **Prometheus & Grafana** stack for node observability.
 
-## 🛠️ Key Technical Skills Demonstrated
-
-- **Infrastructure as Code (Thinking):** Moving from manual console clicks to reproducible CLI and REST API calls.
-- **Identity & Access Management (IAM):** Resolving 2nd Gen Cloud Build permission bottlenecks (iam.serviceAccountUser and artifactregistry.writer).
-- **Observability:** Setting up global uptime monitors to ensure high availability.
-- **Troubleshooting:** Navigating CLI version discrepancies and API-level constraints through direct RESTful interaction (cURL).
+### **Enterprise Integration (API & Security)**
+- **[06-Enterprise Systems (DroneMaster)](./06-enterprise-systems):** - **IAM & Security:** Implementing Service Account access for secure Google Sheets API integration.
+  - **Decision Logic:** An explainable drone mission assignment engine (Python/Next.js).
 
 ---
-*Created as part of the 2026 Cloud Engineering Foundations track.*
+*Maintained by Aditya Shankar | PES University 2026*

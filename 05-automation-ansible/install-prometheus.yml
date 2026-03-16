@@ -1,0 +1,28 @@
+---
+- name: Install and Configure Prometheus
+  hosts: gcp_nodes
+  become: yes
+
+  tasks:
+    - name: Install Prometheus package
+      apt:
+        name: prometheus
+        state: present
+        update_cache: yes
+
+    - name: Ensure Prometheus directory exists
+      file:
+        path: /etc/prometheus
+        state: directory
+        mode: '0755'
+
+    - name: Copy Prometheus configuration
+      template:
+        src: prometheus.yml.j2
+        dest: /etc/prometheus/prometheus.yml
+
+    - name: Ensure Prometheus is started and enabled
+      service:
+        name: prometheus
+        state: restarted
+        enabled: yes

@@ -1,0 +1,31 @@
+---
+- name: Install and Start Grafana
+  hosts: gcp_nodes
+  become: yes
+
+  tasks:
+    - name: Install dependencies
+      apt:
+        name: 
+          - software-properties-common
+          - apt-transport-https
+          - wget
+        state: present
+
+    - name: Add Grafana GPG key
+      shell: "wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/grafana.gpg > /dev/null"
+
+    - name: Add Grafana repository
+      shell: 'echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list'
+
+    - name: Install Grafana
+      apt:
+        name: grafana
+        state: present
+        update_cache: yes
+
+    - name: Start Grafana service
+      service:
+        name: grafana-server
+        state: started
+        enabled: yes

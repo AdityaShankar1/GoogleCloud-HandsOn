@@ -1,0 +1,25 @@
+---
+- name: Configure Web Server and Monitoring Sensor
+  hosts: gcp_nodes
+  become: yes  # This tells Ansible to run as 'sudo' (admin)
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: latest
+
+    - name: Ensure Nginx is started and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Install Node Exporter (for Prometheus)
+      apt:
+        name: prometheus-node-exporter
+        state: present
